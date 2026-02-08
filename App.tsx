@@ -5,9 +5,10 @@ import OrderConfirmation from './components/OrderConfirmation';
 import Receipt from './components/Receipt';
 import Invoice from './components/Invoice';
 import EmailConversation from './components/EmailConversation';
+import ProductionGallery from './components/ProductionGallery';
 import UserProfile from './components/UserProfile';
 import AccountSettings from './components/AccountSettings';
-import { FileText, Mail, User, CheckSquare, Menu, X, Settings, FileBox } from 'lucide-react';
+import { FileText, Mail, User, CheckSquare, Menu, X, Settings, FileBox, Camera } from 'lucide-react';
 
 const App: React.FC = () => {
   const [activeTab, setActiveTab] = useState<Tab>(Tab.CONFIRMATION);
@@ -23,6 +24,8 @@ const App: React.FC = () => {
         return <Receipt />;
       case Tab.EMAIL:
         return <EmailConversation />;
+      case Tab.GALLERY:
+        return <ProductionGallery />;
       case Tab.PROFILE:
         return <UserProfile onNavigate={setActiveTab} />;
       case Tab.SETTINGS:
@@ -56,13 +59,14 @@ const App: React.FC = () => {
         <div className="p-8 border-b border-gray-100">
           <h1 className="text-2xl font-black tracking-tighter text-gray-900">HOB<span className="text-gray-400">.PORTAL</span></h1>
         </div>
-        <nav className="flex-1 p-6 space-y-2">
-          <div className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-4 px-4">Documents</div>
+        <nav className="flex-1 p-6 space-y-1 overflow-y-auto">
+          <div className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-4 mt-2 px-4">Documents</div>
           <NavItem tab={Tab.CONFIRMATION} label="Order Confirmation" icon={CheckSquare} />
           <NavItem tab={Tab.INVOICE} label="Invoice" icon={FileBox} />
           <NavItem tab={Tab.RECEIPT} label="Receipt" icon={FileText} />
           
-          <div className="text-xs font-bold text-gray-400 uppercase tracking-wider mt-8 mb-4 px-4">Communication</div>
+          <div className="text-xs font-bold text-gray-400 uppercase tracking-wider mt-8 mb-4 px-4">Tracking</div>
+          <NavItem tab={Tab.GALLERY} label="Production Gallery" icon={Camera} />
           <NavItem tab={Tab.EMAIL} label="Email Thread" icon={Mail} />
           
           <div className="text-xs font-bold text-gray-400 uppercase tracking-wider mt-8 mb-4 px-4">Account</div>
@@ -71,9 +75,9 @@ const App: React.FC = () => {
         </nav>
         <div className="p-6 border-t border-gray-100">
             <div className="bg-gray-50 rounded-lg p-4">
-                <p className="text-xs text-gray-500 mb-2">Need help?</p>
+                <p className="text-xs text-gray-500 mb-2">Support line</p>
                 <p className="text-sm font-bold text-gray-900">+44 1865 241971</p>
-                <p className="text-xs text-gray-400">Mon-Fri 9am-5pm</p>
+                <p className="text-[10px] text-gray-400">Mon-Fri 9am-5pm BST</p>
             </div>
         </div>
       </aside>
@@ -88,10 +92,11 @@ const App: React.FC = () => {
 
       {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden fixed inset-0 bg-white z-10 pt-20 px-6 space-y-4 print:hidden">
+        <div className="lg:hidden fixed inset-0 bg-white z-10 pt-20 px-6 space-y-2 print:hidden overflow-y-auto pb-12">
             <NavItem tab={Tab.CONFIRMATION} label="Order Confirmation" icon={CheckSquare} />
             <NavItem tab={Tab.INVOICE} label="Invoice" icon={FileBox} />
             <NavItem tab={Tab.RECEIPT} label="Receipt" icon={FileText} />
+            <NavItem tab={Tab.GALLERY} label="Production Gallery" icon={Camera} />
             <NavItem tab={Tab.EMAIL} label="Email Thread" icon={Mail} />
             <NavItem tab={Tab.PROFILE} label="User Profile" icon={User} />
             <NavItem tab={Tab.SETTINGS} label="Account Settings" icon={Settings} />

@@ -1,5 +1,5 @@
 
-import { Customer, Order, EmailMessage } from './types';
+import { Customer, Order, EmailMessage, GalleryItem } from './types';
 
 export const CURRENT_CUSTOMER: Customer = {
   id: '376',
@@ -7,12 +7,12 @@ export const CURRENT_CUSTOMER: Customer = {
   address: ['Iffley Rd', 'Oxford OX4 1EQ', 'United Kingdom'],
   email: 'marwelgkcurry83@gmail.com',
   phone: '+441865241971',
-  avatarUrl: 'https://picsum.photos/200/200'
+  avatarUrl: 'https://picsum.photos/seed/arthur/200/200'
 };
 
 export const COMPANY_INFO = {
   name: 'HOB FURNITURE',
-  contact: 'emma kitchen',
+  contact: 'Emma Kitchen',
   address: ['4th Floor 205 Regent Street', 'London - W1B 4HB'],
   regNo: '14667294',
   email: 'customerservice@hobfurniture.co.uk',
@@ -47,7 +47,7 @@ export const SAMPLE_ORDER: Order = {
     }
   ],
   subtotal: 2000.00,
-  tax: 0, // IMPLIED included or exempt based on PDF "Subtotal without VAT" line but total is same
+  tax: 0,
   total: 2000.00,
   amountPaid: 2000.00,
   amountDue: 0.00
@@ -88,5 +88,22 @@ Thanks for the confirmation. I just wanted to double-check if the fabric "Alaska
 Thanks,
 Arthur`,
     isIncoming: false
+  }
+];
+
+export const INITIAL_GALLERY: GalleryItem[] = [
+  {
+    id: 'g_1',
+    url: 'https://images.unsplash.com/photo-1581428982868-e410dd047a90?auto=format&fit=crop&q=80&w=800',
+    caption: 'Frame assembly started',
+    date: 'Sep 16, 2025',
+    type: 'production'
+  },
+  {
+    id: 'g_2',
+    url: 'https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&q=80&w=800',
+    caption: 'Fabric cutting for Alaska Madrid Chenielle',
+    date: 'Sep 17, 2025',
+    type: 'production'
   }
 ];

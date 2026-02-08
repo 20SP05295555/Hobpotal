@@ -62,11 +62,20 @@ export interface EmailMessage {
   isIncoming: boolean;
 }
 
+export interface GalleryItem {
+  id: string;
+  url: string;
+  caption: string;
+  date: string;
+  type: 'production' | 'capture';
+}
+
 export enum Tab {
   CONFIRMATION = 'CONFIRMATION',
   INVOICE = 'INVOICE',
   RECEIPT = 'RECEIPT',
   EMAIL = 'EMAIL',
+  GALLERY = 'GALLERY',
   PROFILE = 'PROFILE',
   SETTINGS = 'SETTINGS'
 }
